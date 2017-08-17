@@ -18,9 +18,9 @@ public class CarDAO {
     @PersistenceContext
     EntityManager entityManager;
 
-//    public Collection<Car> getAllCars() {
-//        return (entityManager.createQuery("from Car")).getResultList();
-//    }
+    public Collection<Car> getAllCars() {
+        return (entityManager.createQuery("from Car")).getResultList();
+    }
 
 
     public int save(Car car) {
@@ -28,8 +28,12 @@ public class CarDAO {
         return car.getCarId();
     }
 
-//    public Collection<Car> getCars(String field, String fieldValue) {
-//        return (entityManager.createQuery("from Car where "+field+"='"+fieldValue+"'")).getResultList();
-//    }
+    public Collection<Car> getCars(String field, String fieldValue) {
+        return (entityManager.createQuery("from Car where "+field+"='"+fieldValue+"'")).getResultList();
+    }
+
+    public Collection<Car> getCarsLessThanMaxPrice(String field, String fieldValue) {
+        return (entityManager.createQuery("from Car where " + field + "<='" + fieldValue + "'")).getResultList();
+    }
 }
 

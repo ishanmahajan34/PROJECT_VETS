@@ -4,7 +4,7 @@ import {Http,Headers,RequestOptions} from "@angular/http";
 import {Car} from "./car";
 
 @Component({
-    selector:'myApp',
+    selector:'car',
     templateUrl:'../partials/car.component.html',
     // styleUrls:['../css/car.component.styles.css'],
 })

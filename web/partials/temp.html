@@ -1,11 +1,11 @@
 <div class = 'carForm'>
     <form name="carForm" #carForm="ngForm">
-        <div *ngIf="successMessage" [ngClass] = "'success'"> {{car.make}} {{car.model}} Added. </div>
+        <div *ngIf="successMessage" [ngClass] = "'success'"> {{cars.make}} {{cars.model}} Added. </div>
         <div *ngIf="errorMessage" [ngClass] = "'error'"> {{errorMessage}} </div>
         <h1>{{title}}</h1>
         <div class="form-group">
             <label for="title">Make</label>
-            <input type="text" class="form-control" id="title" required minlength="3" maxlength="20" [(ngModel)]="car.make" name="make" #make="ngModel">
+            <input type="text" class="form-control" id="title" required minlength="3" maxlength="20" [(ngModel)]="cars.make" name="make" #make="ngModel">
             <div *ngIf="make.errors && (make.dirty || make.touched)" class="alert alert-danger">
                 <div [hidden]="!make.errors.required">
                     Car make is required!
@@ -19,9 +19,9 @@
             </div>
         </div>
 
-        Model : <input type='text' [(ngModel)]='car.model' name="model" /><br/>
-        Year of Manufacture : <input type='number' [(ngModel)]='car.year' name="year" /><br/>
-        Trim : <input type='text' [(ngModel)]='car.trim' name="trim" /><br/>
+        Model : <input type='text' [(ngModel)]='cars.model' name="model" /><br/>
+        Year of Manufacture : <input type='number' [(ngModel)]='cars.year' name="year" /><br/>
+        Trim : <input type='text' [(ngModel)]='cars.trim' name="trim" /><br/>
         <input type='button' value='Add' (click)='addCar();' [disabled]="!carForm.form.valid" />
 
     </form>

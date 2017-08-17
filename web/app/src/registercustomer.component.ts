@@ -4,7 +4,7 @@ import {Http,Headers,RequestOptions} from "@angular/http";
 import {Customer} from "./customer";
 
 @Component({
-    selector:'myApp',
+    selector:'register',
     templateUrl:'../partials/cust.html'
     // template: '<h1>hello</h1>',
     // styleUrls:['../css/car.component.styles.css'],

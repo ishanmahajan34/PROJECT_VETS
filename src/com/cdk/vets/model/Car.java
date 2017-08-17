@@ -3,6 +3,7 @@ package com.cdk.vets.model;
 import javax.persistence.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 //enum STATUS {
 //    SOLD, AVAILABLE
@@ -10,7 +11,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "car_details")
-public class Car {
+public class Car implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int carId;
@@ -25,10 +26,17 @@ public class Car {
     private int year;
 
     private double price;
+
     private int distance;
     //    private STATUS status;
     private boolean availability;
+
     private String image;
+
+
+
+//    @Column
+//    private int customerId;
 
     public Car(){
 

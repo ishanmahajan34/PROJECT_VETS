@@ -2,11 +2,14 @@ package com.cdk.vets.model;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @XmlRootElement
 @Entity
 @Table(name = "customer_detail")
-public class Customer {
+public class Customer implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,6 +17,10 @@ public class Customer {
 
     @Column(length = 30, nullable = false)
     private String name;
+
+//    @OneToMany()
+//    @JoinColumn(name = "customerId", referencedColumnName = "customerId")
+//    private List<Car> carList;
 
 
     @Column(length = 30, nullable = false, unique = true)
@@ -24,6 +31,9 @@ public class Customer {
 
     private String city;
 
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "customerId")
+    List<Car> cars = new ArrayList<>();
 
     public Customer() {
     }
