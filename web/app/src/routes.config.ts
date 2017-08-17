@@ -1,9 +1,11 @@
 import { Routes,RouterModule } from '@angular/router';
 
 import {CarComponent} from './car.component';
-import {RegisterCustomerComponent} from './registercustomer.component';
+
 import {HomeComponent} from "./home.component";
 import {CarSearchComponent} from "./carsearch.component";
+
+import {RegisterCustomerComponent} from "./registercustomer.component";
 
 let routes:Routes = [
     {path:'add',component:CarComponent},

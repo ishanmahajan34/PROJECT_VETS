@@ -1,12 +1,12 @@
 package com.cdk.vets.service;
 
 import com.cdk.vets.dao.CustomerDAO;
+import com.cdk.vets.model.Car;
 import com.cdk.vets.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
 
 
 @Service
@@ -26,8 +26,9 @@ public class CustomerService {
 //    }
 
     @Transactional
-    public void add(Customer customer) {
-        customerDAO.save(customer);
+    public int add(Customer customer) {
+       return customerDAO.save(customer);
+
     }
 
 //    @Transactional
@@ -51,6 +52,7 @@ public class CustomerService {
     public void remove(Integer id) {
         customerDAO.delete(id);
     }
+
 
 
 }

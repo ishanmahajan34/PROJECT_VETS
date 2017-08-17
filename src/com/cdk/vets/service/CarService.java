@@ -15,8 +15,22 @@ public class CarService {
 
     @Autowired
     CarDAO carDAO;
+
     @Transactional
     public int save(Car car){
         return carDAO.save(car);
+    }
+
+    @Transactional
+    public Collection<Car> readAllCars() {
+        return carDAO.getAllCars();
+    }
+
+    public Collection<Car> readCars(String field, String fieldValue) {
+        return carDAO.getCars(field,fieldValue);
+    }
+
+    public Collection<Car> readCarsLessThanMaxPrice(String field, String fieldValue) {
+        return carDAO.getCarsLessThanMaxPrice(field, fieldValue);
     }
 }

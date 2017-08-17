@@ -31,10 +31,6 @@ public class Customer implements Serializable {
 
     private String city;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name = "customerId")
-    List<Car> cars = new ArrayList<>();
-
     public Customer() {
     }
 
@@ -86,6 +82,7 @@ public class Customer implements Serializable {
     public void setCity(String city) {
         this.city = city;
     }
+
 
     @Override
     public String toString() {

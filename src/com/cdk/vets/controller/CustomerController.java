@@ -1,5 +1,6 @@
 package com.cdk.vets.controller;
 
+import com.cdk.vets.model.Car;
 import com.cdk.vets.model.Customer;
 import com.cdk.vets.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ public class CustomerController {
     @RequestMapping(value = "/registerCustomer",consumes = MediaType.APPLICATION_JSON_VALUE ,produces = MediaType.TEXT_PLAIN_VALUE ,method = RequestMethod.POST)
     public String addCustomer(@RequestBody Customer customer){
 //        System.out.println(customer);
-        customerService.add(customer);
-        return "Customer with " + customer.getCustomerId() + " ADDED";
+        int id = customerService.add(customer);
+        return "Customer with " + customer.getCustomerId()+ " added successfully!!!";
     }
 
     @RequestMapping(value = "/removeCustomer/{id}",produces = MediaType.TEXT_PLAIN_VALUE, method = RequestMethod.DELETE)
@@ -33,6 +34,8 @@ public class CustomerController {
 //    public void updateCustomer(@PathVariable String username, @RequestBody ) {
 //
 //    }
+
+
 
 
 

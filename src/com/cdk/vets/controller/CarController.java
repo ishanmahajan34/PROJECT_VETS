@@ -32,7 +32,7 @@ public class CarController {
         return carService.readAllCars();
     }
 
-    @RequestMapping(value = "/uploadCar",consumes = "application/json" ,produces = TEXT_PLAIN_VALUE ,method = RequestMethod.POST)
+    @RequestMapping(value = "/uploadCar",consumes = MediaType.APPLICATION_JSON_VALUE ,produces = MediaType.TEXT_PLAIN_VALUE ,method = RequestMethod.POST)
     public String addCar(@RequestBody Car car){
         System.out.println(car);
         int value = carService.save(car);

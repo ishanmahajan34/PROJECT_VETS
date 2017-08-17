@@ -8,7 +8,7 @@ import {Component} from "@angular/core";
 		<a routerLink="add">Add Car</a>
         <a routerLink="carlist">Find Cars</a>
 		<br/>
-		<a routerLink="carlist"><img src="/images/BMW-X6.png"/></a>
+		<!--<a routerLink="addcarforcustomer">add customer car</a>-->
 		<br />
        	<router-outlet></router-outlet>      
     </div>`

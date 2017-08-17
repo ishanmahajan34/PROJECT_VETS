@@ -4,22 +4,22 @@ import {Http,Headers,RequestOptions} from "@angular/http";
 import {Car} from "./car";
 
 @Component({
-    selector:'car',
+	selector:'add',
     templateUrl:'../partials/car.component.html',
-    // styleUrls:['../css/car.component.styles.css'],
+    styleUrls:['../css/car.component.styles.css'],
 })
 export class CarComponent{
 
-    title:string ="Car Form";
-    car:Car;
-    successMessage:string;
+	title:string ="Car Form";
+	car:Car;
+	successMessage:string;
     errorMessage:string;
 
 
     constructor(private http:Http) {
-        //      this.car = new Car(this.car.make,this.car.model,this.car.year,this.car.price,this.car.distance,"merc.jpg");
-        this.car= new Car("Audi","A4",2007,64828,74402,"mercedes.jpg");
-    }
+    //      this.car = new Car(this.car.make,this.car.model,this.car.year,this.car.price,this.car.distance,"merc.jpg");
+            this.car= new Car("Audi", "A4",2007,64828,74402,"mercedes.jpg");
+     }
 
     addCar() {
         console.log("Inside addCar()!!!!");

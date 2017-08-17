@@ -11,6 +11,7 @@ import {RegisterCustomerComponent} from './registercustomer.component';
 import {AppComponent} from "./app.component";
 import {HomeComponent} from "./home.component";
 import {CarSearchComponent} from "./carsearch.component";
+// import {AddCustomerCarComponent} from "./addcustomercar.component";
 
 
 
