@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -25,8 +26,11 @@ public class CustomerDAO {
         return entityManager.find(Customer.class, id);
     }
 
+    @Transactional
     public int save(Customer customer) {
-        entityManager.persist(customer);
+//        entityManager.merge(customer.getCarList());
+        entityManager.merge(customer);
+        entityManager.flush();
         return customer.getCustomerId();
     }
 
@@ -36,6 +40,9 @@ public class CustomerDAO {
     }
 
 
+    public List<Customer> login(String email) {
+        return entityManager.createQuery("FROM Customer c where c.email ='" + email + "'").getResultList();
+    }
 
 
 //    public List<Customer> selectAll(){
