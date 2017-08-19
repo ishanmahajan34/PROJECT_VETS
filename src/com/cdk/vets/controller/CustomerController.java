@@ -43,6 +43,9 @@ public class CustomerController {
 
     @RequestMapping(value = "/addCarByEmail/{email}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
     public void readCusomersByUsername(@PathVariable String email, @RequestBody Car car) {
+
+//        if(email.contains('@'))
+
         System.out.println("-----------------------------------------------------------");
         Customer customer =  customerService.login(email);
         customer.getCarSet().add(car);

@@ -1,17 +1,16 @@
 import {Component} from "@angular/core";
 import {Http, Headers, RequestOptions} from "@angular/http";
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
 
 import {Customer} from "./customer";
 import {Car} from "./car";
 
 
-
 @Component({
     selector: 'register',
     templateUrl: '../partials/cust.html'
-    // styleUrls:['../css/car.component.styles.css'],
+
 })
 export class RegisterCustomerComponent {
 
@@ -21,22 +20,20 @@ export class RegisterCustomerComponent {
     errorMessage: string;
     // customerParameter : Parameter;
     // customerId : number;
-    car:Car;
+    car: Car;
 
-    carArray:Car[];
+    carArray: Car[];
 
 
+    constructor(private http: Http, private router: Router) {
 
-    constructor(private http: Http, private router:Router) {
-
-        // this.carTest = new Car("", "",0,0,0,"");
-        this.car= new Car("", "",0,0,0,"");
+        this.car = new Car("", "", 0, 0, 0, "");
         this.carArray = [this.car];
         console.log("CarArray");
         console.log(this.carArray);
         console.log("Out of CarArray");
 
-        this.customer = new Customer("ishan", "mahajanish343@gmail.com", "8390703981", "Pune",this.carArray);
+        this.customer = new Customer("", "", "", "", this.carArray);
         console.log("INSIDE REGISTER CUSTOMER !!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
 
@@ -56,8 +53,6 @@ export class RegisterCustomerComponent {
         this.http.post(addUrl, this.customer, options).subscribe(
             res => {
                 this.successMessage = res.toString();
-                // this.customerId = parseInt(this.successMessage, 10);
-
 
                 console.log(res.text());
                 this.errorMessage = ""
@@ -66,16 +61,15 @@ export class RegisterCustomerComponent {
                 this.errorMessage = <any>error;
                 this.successMessage = ""
             });
-        //
-        // var addLink = ['/add'];
-        // this.router.navigate(addLink);
+
     }
 
 
-    // addCarFromCustomer() {
-    //     var addLink = ['/add'];
-    //     this.router.navigate(addLink);
-    // }
+    addNewCarToCustomer() {
+        var registerCarLink = ['/emailFind/' + this.customer.email];
+        this.router.navigate(registerCarLink);
+    }
+
 
 }
 

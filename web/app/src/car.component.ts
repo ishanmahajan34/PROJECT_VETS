@@ -19,7 +19,7 @@ export class CarComponent{
 
 
     constructor(private http:Http) {
-            this.car= new Car("Audi", "A4",2007,64828,74402,"mercedes.jpg");
+            this.car= new Car("Audi","A4",2007,64828,74402,"mercedes.jpg");
      }
 
     addCar() {

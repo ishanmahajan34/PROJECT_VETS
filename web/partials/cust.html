@@ -20,26 +20,12 @@
             </div>
         </div>
 
-        Email : <input type='text' [(ngModel)]='customer.email' name="email"/><br/>
+        Username : <input type='text' [(ngModel)]='customer.email' name="email"/>@carexchange.com<br/>
         Phone Number : <input type='text' [(ngModel)]='customer.phoneNumber' name="phoneNumber"/><br/>
         City : <input type='text' [(ngModel)]='customer.city' name="city"/><br/>
 
         <hr/>
-
-        Brand : <input type='text' [(ngModel)]="car.make" name="make"/><br/>
-        Model : <input type='text' [(ngModel)]="car.model" name="model"/><br/>
-        Year : <input type='number' [(ngModel)]="car.year" name="year"/><br/>
-        DISTANCE : <input type='number' [(ngModel)]="car.distance" name="distance"/><br/>
-        PRICE : <input type='number' [(ngModel)]="car.price" name="price"/><br/>
-
-
-        <!--<input type='button' value='Upload Car Information' (click)='addCar();'/>-->
-
-
         <input type='button' value='Add' (click)='addCustomer();' [disabled]="!carForm.form.valid"/>
+        <input type='button' value='Add Car' (click)='addNewCarToCustomer();' />
     </form>
-
-    <!--<h1>Click here!</h1>-->
-
-    <!--<input type="button" value="ADD CAR" (click)="addCarFromCustomer();" />-->
 </div>

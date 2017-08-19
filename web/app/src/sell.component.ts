@@ -28,7 +28,7 @@ export class SellCarComponent implements OnInit {
         this.router.navigate(newCustomerLink);
     }
     registeredCustomer(){
-        var registeredCustomerLink = ['/emailFind/'];
+        var registeredCustomerLink = ['/emailFind/'+this.username];
         this.router.navigate(registeredCustomerLink);
     }
 }

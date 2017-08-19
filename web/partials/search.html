@@ -14,7 +14,6 @@
     <!--<input type="text" [(ngModel)]="maxPrice"/>-->
 
 
-
     <input type="text" [(ngModel)]="searchPrice"/>
 
 
@@ -22,23 +21,30 @@
     <table class="carList">
         <thead>
         <tr>
-            <th>Name</th>
+            <th>Make</th>
+            <th>Model</th>
             <th>Year</th>
-            <th>Distance travelled by Car</th>
+            <th>Distance</th>
             <th>Selling Price</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let cars of cars">
-            <td>{{cars.make}} {{cars.model}}</td>
-            <td>{{cars.year}}</td>
-            <td>{{cars.distance}}</td>
-            <td>{{cars.price}}</td>
-            <td>
-                <input type="button" value="">
-            </td>
-            <!--<td><img width="100" height="100" [src]="imageUrl+cars.logo"></td>-->
+        <tr *ngFor="let car of cars">
+            <td>{{car.make}}</td>
+            <td>{{car.model}}</td>
+            <td>{{car.year}}</td>
+            <td>{{car.distance}}</td>
+            <td>{{car.price}}</td>
+            <td><input type="button" (click)="detailedCar(car);" value="Show Details"></td>
+            <td><input type="button" (click)="proceedCar();" value="Show Details"></td>
+
         </tr>
+
+        <!--<td>-->
+        <!--&lt;!&ndash;<input type="button" value="">&ndash;&gt;-->
+        <!--</td>-->
+        <!--<td><img width="100" height="100" [src]="imageUrl+cars.logo"></td>-->
         </tbody>
     </table>
 </div>
