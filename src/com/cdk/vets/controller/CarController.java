@@ -60,6 +60,20 @@ public class CarController {
     }
 
 
+
+
+    @RequestMapping(value = "/select/{make}/{model}/{distance}/{year}",produces = MediaType.APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
+    public int viewSelectedCar(@PathVariable String make, @PathVariable String model, @PathVariable int distance, @PathVariable int year){
+        return carService.findSelectedCar(make,model,distance,year).getCarId();
+    }
+
+
+    @RequestMapping(value = "/findCar/{id}",produces = MediaType.APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
+    public Car returnSelectedCar(@PathVariable int id){
+        return carService.returnSelectedCar(id);
+    }
+
+
 //    @RequestMapping(value = "/carModels/{make}",produces = "application/json" ,method = RequestMethod.GET)
 //    public Collection<String> displayModels(@PathVariable String make){
 //        return carService.displayCarModels(make);

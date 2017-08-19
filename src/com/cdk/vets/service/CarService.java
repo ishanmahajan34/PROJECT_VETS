@@ -19,7 +19,7 @@ public class CarService {
     CarDAO carDAO;
 
     @Transactional
-    public int save(Car car){
+    public int save(Car car) {
         return carDAO.save(car);
     }
 
@@ -29,7 +29,7 @@ public class CarService {
     }
 
     public Collection<Car> readCars(String field, String fieldValue) {
-        return carDAO.getCars(field,fieldValue);
+        return carDAO.getCars(field, fieldValue);
     }
 
     public Collection<Car> readCarsLessThanMaxPrice(String field, String fieldValue) {
@@ -46,27 +46,44 @@ public class CarService {
 
     public List<Car> displayCarsByModel(String model) {
         return carDAO.getAllCars().stream()
-                .filter(car->car.getModel().equalsIgnoreCase(model))
+                .filter(car -> car.getModel().equalsIgnoreCase(model))
                 .collect(toList());
     }
 
-    public List<Car> dispayCarsByMake (String make) {
+    public List<Car> dispayCarsByMake(String make) {
         return carDAO.getAllCars().stream()
-                .filter(car->car.getMake().equalsIgnoreCase(make))
+                .filter(car -> car.getMake().equalsIgnoreCase(make))
                 .collect(toList());
     }
 
     public List<Car> dispayCarsByMakeAndPrice(String make, double price) {
         return carDAO.getAllCars().stream()
-                .filter(car->car.getMake().equalsIgnoreCase(make))
-                .filter(car->car.getPrice()<price)
+                .filter(car -> car.getMake().equalsIgnoreCase(make))
+                .filter(car -> car.getPrice() < price)
                 .collect(toList());
     }
 
     public List<Car> dispayCarsByModelAndPrice(String model, double price) {
         return carDAO.getAllCars().stream()
-                .filter(car->car.getModel().equalsIgnoreCase(model))
-                .filter(car->car.getPrice()<price)
+                .filter(car -> car.getModel().equalsIgnoreCase(model))
+                .filter(car -> car.getPrice() < price)
                 .collect(toList());
+    }
+
+    public Car findSelectedCar(String make, String model, int disance, int year) {
+        return carDAO.getAllCars().stream()
+                .filter(car -> car.getMake().equalsIgnoreCase(make))
+                .filter(car -> car.getModel().equalsIgnoreCase(model))
+                .filter(car -> car.getDistance() == disance)
+                .filter(car -> car.getYear() == year)
+                .findFirst()
+                .get();
+    }
+
+    public Car returnSelectedCar(int id) {
+        return carDAO.getAllCars().stream()
+                .filter(car -> car.getCarId() == id)
+                .findFirst()
+                .get();
     }
 }

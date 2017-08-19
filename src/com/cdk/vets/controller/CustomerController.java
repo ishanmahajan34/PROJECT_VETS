@@ -21,9 +21,6 @@ public class CustomerController {
 
     @RequestMapping(value = "/registerCustomer", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE, method = RequestMethod.POST)
     public String addCustomer(@RequestBody Customer customer) {
-
-        System.out.println("\n\n\n"+customer.toString());
-
         int id = customerService.add(customer);
 //        return "Customer with " + customer.getCustomerId()+ " added successfully!!!";
         return String.valueOf(customer.getCustomerId());
