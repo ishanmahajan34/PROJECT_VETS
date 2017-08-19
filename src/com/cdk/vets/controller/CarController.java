@@ -23,10 +23,65 @@ public class CarController {
         return carService.readCars(field,fieldValue);
     }
 
-    @RequestMapping(value = "/car/{field}/{fieldValue}")
-    public Collection<Car> readCarsLessMaxPriceAsJson(@PathVariable String field, @PathVariable String fieldValue) {
-        return carService.readCarsLessThanMaxPrice(field, fieldValue);
+
+    @RequestMapping(value = "/carMakes",produces = "application/json" ,method = RequestMethod.GET)
+    public Collection<String> displayMake(){
+        return carService.displayCarMake();
     }
+
+    @RequestMapping(value = "/carModels/{make}",produces = "application/json" ,method = RequestMethod.GET)
+    public Collection<String> displayModels(@PathVariable String make){
+        return carService.displayCarModels(make);
+    }
+
+
+    @RequestMapping(value = "/cars/model/{model}",produces = "application/json" ,method = RequestMethod.GET)
+    public Collection<Car> displayCarByModels(@PathVariable String model){
+        return carService.displayCarsByModel(model);
+    }
+
+
+
+    @RequestMapping(value = "/cars/makeAndPrices/{make}/{price}",produces = "application/json" ,method = RequestMethod.GET)
+    public Collection<Car> displayCarByMakeBelowPrice(@PathVariable String make, @PathVariable String price){
+        return carService.dispayCarsByMakeAndPrice(make,Double.parseDouble(price));
+    }
+
+
+    @RequestMapping(value = "/cars/modelAndPrices/{model}/{price}",produces = "application/json" ,method = RequestMethod.GET)
+    public Collection<Car> displayCarByModelBelowPrice(@PathVariable String model, @PathVariable String price){
+        return carService.dispayCarsByModelAndPrice(model,Double.parseDouble(price));
+    }
+
+
+    @RequestMapping(value = "/cars/make/{make}",produces = "application/json" ,method = RequestMethod.GET)
+    public Collection<Car> displayCarByMakes(@PathVariable String make){
+        return carService.dispayCarsByMake(make);
+    }
+
+
+//    @RequestMapping(value = "/carModels/{make}",produces = "application/json" ,method = RequestMethod.GET)
+//    public Collection<String> displayModels(@PathVariable String make){
+//        return carService.displayCarModels(make);
+//    }
+
+
+//    @RequestMapping(value = "/carAge/{age}",produces = "application/json" ,method = RequestMethod.GET)
+//    public Collection<String> displayCarsByAge(@PathVariable int age){
+//        return carService.displayCarByAge(age);
+//    }
+
+
+//    @RequestMapping(value = "/findCars/{field}/{fieldValue}")
+//    public Collection<Car> readCarsLessMaxPriceAsJson(@PathVariable String field, @PathVariable String fieldValue) {
+//        return carService.readCarsLessThanMaxPrice(field, fieldValue);
+//    }
+
+
+//    @RequestMapping(value = "/car/{field}/{fieldValue}")
+//    public Collection<Car> readCarsLessMaxPriceAsJson(@PathVariable String field, @PathVariable String fieldValue) {
+//        return carService.readCarsLessThanMaxPrice(field, fieldValue);
+//    }
     @RequestMapping(value = "/cars",produces = "application/json" ,method = RequestMethod.GET)
     public Collection<Car> readAllCarsAsJson(){
         return carService.readAllCars();

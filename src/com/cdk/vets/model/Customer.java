@@ -5,8 +5,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
-@XmlRootElement
 @Entity
 @Table(name = "customer_detail")
 public class Customer implements Serializable {
@@ -18,11 +18,6 @@ public class Customer implements Serializable {
     @Column(length = 30, nullable = false)
     private String name;
 
-//    @OneToMany()
-//    @JoinColumn(name = "customerId", referencedColumnName = "customerId")
-//    private List<Car> carList;
-
-
     @Column(length = 30, nullable = false, unique = true)
     private String email;
 
@@ -31,15 +26,20 @@ public class Customer implements Serializable {
 
     private String city;
 
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "customerId")
+    private List<Car> carSet = new ArrayList<>();
+
+
     public Customer() {
     }
 
-    public Customer(int customerId, String name, String email, String phoneNumber, String city) {
-        this.customerId = customerId;
+    public Customer(String name, String email, String phoneNumber, String city, List<Car> carSet) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.city = city;
+        this.carSet = carSet;
     }
 
     public int getCustomerId() {
@@ -66,7 +66,6 @@ public class Customer implements Serializable {
         this.email = email;
     }
 
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -83,6 +82,13 @@ public class Customer implements Serializable {
         this.city = city;
     }
 
+    public List<Car> getCarSet() {
+        return carSet;
+    }
+
+    public void setCarSet(List<Car> carSet) {
+        this.carSet = carSet;
+    }
 
     @Override
     public String toString() {
@@ -92,6 +98,7 @@ public class Customer implements Serializable {
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", city='" + city + '\'' +
+                ", carSet=" + carSet +
                 '}';
     }
 }

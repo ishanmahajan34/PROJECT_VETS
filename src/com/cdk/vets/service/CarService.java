@@ -10,6 +10,8 @@ import java.util.List;
 
 import java.util.Collection;
 
+import static java.util.stream.Collectors.toList;
+
 @Service
 public class CarService {
 
@@ -32,5 +34,39 @@ public class CarService {
 
     public Collection<Car> readCarsLessThanMaxPrice(String field, String fieldValue) {
         return carDAO.getCarsLessThanMaxPrice(field, fieldValue);
+    }
+
+    public List<String> displayCarMake() {
+        return carDAO.getMakes();
+    }
+
+    public List<String> displayCarModels(String make) {
+        return carDAO.getModel(make);
+    }
+
+    public List<Car> displayCarsByModel(String model) {
+        return carDAO.getAllCars().stream()
+                .filter(car->car.getModel().equalsIgnoreCase(model))
+                .collect(toList());
+    }
+
+    public List<Car> dispayCarsByMake (String make) {
+        return carDAO.getAllCars().stream()
+                .filter(car->car.getMake().equalsIgnoreCase(make))
+                .collect(toList());
+    }
+
+    public List<Car> dispayCarsByMakeAndPrice(String make, double price) {
+        return carDAO.getAllCars().stream()
+                .filter(car->car.getMake().equalsIgnoreCase(make))
+                .filter(car->car.getPrice()<price)
+                .collect(toList());
+    }
+
+    public List<Car> dispayCarsByModelAndPrice(String model, double price) {
+        return carDAO.getAllCars().stream()
+                .filter(car->car.getModel().equalsIgnoreCase(model))
+                .filter(car->car.getPrice()<price)
+                .collect(toList());
     }
 }

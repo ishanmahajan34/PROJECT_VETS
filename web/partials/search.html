@@ -1,0 +1,44 @@
+<div>
+    Search By :
+    <select (click)="displayMakes();" name="searchMake" [(ngModel)]="searchMake">
+        <!--<option value="">SELECT</option>-->
+        <option *ngFor="let make of make" value="{{make}}">{{make}}</option>
+    </select>
+
+    <select (click)="displayModels();" name="searchModel" [(ngModel)]="searchModel">
+        <!--<option value="">SELECT</option>-->
+        <option *ngFor="let model of model" value="{{model}}">{{model}}</option>
+    </select>
+
+
+    <!--<input type="text" [(ngModel)]="maxPrice"/>-->
+
+
+
+    <input type="text" [(ngModel)]="searchPrice"/>
+
+
+    <input type="button" value="GO" (click)="getCars();"/>
+    <table class="carList">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Distance travelled by Car</th>
+            <th>Selling Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let cars of cars">
+            <td>{{cars.make}} {{cars.model}}</td>
+            <td>{{cars.year}}</td>
+            <td>{{cars.distance}}</td>
+            <td>{{cars.price}}</td>
+            <td>
+                <input type="button" value="">
+            </td>
+            <!--<td><img width="100" height="100" [src]="imageUrl+cars.logo"></td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>

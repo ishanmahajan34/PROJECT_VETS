@@ -40,8 +40,12 @@ public class CustomerDAO {
     }
 
 
-    public List<Customer> login(String email) {
-        return entityManager.createQuery("FROM Customer c where c.email ='" + email + "'").getResultList();
+    public Customer login(String email) {
+        return (Customer)entityManager.createQuery("FROM Customer c where c.email ='" + email + "'").getSingleResult();
+    }
+
+    public void update(Customer customer) {
+        entityManager.merge(customer);
     }
 
 

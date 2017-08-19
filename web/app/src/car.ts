@@ -9,7 +9,7 @@ export class Car {
 
 
     constructor( make: string, model: string, year: number, price: number, distance: number,image:string) {
-
+        console.log("INSIDE CAR!!!!!!!!!!!!!!!!!!2222222222222222");
         this.make = make;
         this.model = model;
         this.year = year;

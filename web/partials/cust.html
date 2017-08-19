@@ -1,11 +1,12 @@
-<div class = 'carForm'>
+<div class='carForm' style="border-color: #a94442;">
     <form name="carForm" #carForm="ngForm">
-        <div *ngIf="successMessage" [ngClass] = "'success'"> {{customer.name}} Added. </div>
-        <div *ngIf="errorMessage" [ngClass] = "'error'"> {{errorMessage}} </div>
+        <div *ngIf="successMessage" [ngClass]="'success'"> {{customer.name}} Added.</div>
+        <div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}}</div>
         <h1>{{title}}</h1>
         <div class="form-group">
             <label for="name">NAME : </label>
-            <input type="text" class="form-control" id="name" required minlength="3" maxlength="20" [(ngModel)]="customer.name" name="name" #make="ngModel">
+            <input type="text" class="form-control" id="name" required minlength="3" maxlength="20"
+                   [(ngModel)]="customer.name" name="name" #make="ngModel">
             <div *ngIf="make.errors && (make.dirty || make.touched)" class="alert alert-danger">
                 <div [hidden]="!make.errors.required">
                     Name is required!
@@ -19,10 +20,26 @@
             </div>
         </div>
 
-        Email : <input type='text' [(ngModel)]='customer.email' name="email" /><br/>
-        Phone Number : <input type='text' [(ngModel)]='customer.phoneNumber' name="phoneNumber" /><br/>
-        City : <input type='text' [(ngModel)]='customer.city' name="city" /><br/>
-        <input type='button' value='Add' (click)='addCustomer();' [disabled]="!carForm.form.valid" />
+        Email : <input type='text' [(ngModel)]='customer.email' name="email"/><br/>
+        Phone Number : <input type='text' [(ngModel)]='customer.phoneNumber' name="phoneNumber"/><br/>
+        City : <input type='text' [(ngModel)]='customer.city' name="city"/><br/>
 
+        <hr/>
+
+        Brand : <input type='text' [(ngModel)]="car.make" name="make"/><br/>
+        Model : <input type='text' [(ngModel)]="car.model" name="model"/><br/>
+        Year : <input type='number' [(ngModel)]="car.year" name="year"/><br/>
+        DISTANCE : <input type='number' [(ngModel)]="car.distance" name="distance"/><br/>
+        PRICE : <input type='number' [(ngModel)]="car.price" name="price"/><br/>
+
+
+        <!--<input type='button' value='Upload Car Information' (click)='addCar();'/>-->
+
+
+        <input type='button' value='Add' (click)='addCustomer();' [disabled]="!carForm.form.valid"/>
     </form>
+
+    <!--<h1>Click here!</h1>-->
+
+    <!--<input type="button" value="ADD CAR" (click)="addCarFromCustomer();" />-->
 </div>

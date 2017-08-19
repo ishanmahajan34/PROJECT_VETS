@@ -1,6 +1,6 @@
 <div>
     Search By :
-    <select name="searchField" [(ngModel)]="searchField">
+    <select (click)="displayText();" name="searchField" [(ngModel)]="searchField">
         <option value="">--Select--</option>
         <option value="make">Make</option>
         <option value="model">Model</option>

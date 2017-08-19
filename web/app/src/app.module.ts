@@ -11,13 +11,14 @@ import {RegisterCustomerComponent} from './registercustomer.component';
 import {AppComponent} from "./app.component";
 import {HomeComponent} from "./home.component";
 import {CarSearchComponent} from "./carsearch.component";
+import {CricketComponent} from "./cricket.component";
 // import {AddCustomerCarComponent} from "./addcustomercar.component";
 
 
 
 @NgModule({
     imports:[BrowserModule,FormsModule,HttpModule,configuredRoutes],
-	declarations:[RegisterCustomerComponent,CarComponent,AppComponent,HomeComponent,CarSearchComponent],
+	declarations:[RegisterCustomerComponent,CricketComponent,CarComponent,AppComponent,HomeComponent,CarSearchComponent],
     bootstrap:[AppComponent]
 })
 export class AppModule{

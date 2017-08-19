@@ -1,0 +1,14 @@
+<div class='carForm'>
+    <form name="carForm" #carForm="ngForm" >
+    Brand : <input type='text' [(ngModel)]='car.make' name="make" /><br/>
+    Model : <input type='text' [(ngModel)]='car.model' name="model" /><br/>
+    Year : <input type='number' [(ngModel)]='car.year' name="year" /><br/>
+    DISTANCE : <input type='number' [(ngModel)]='car.distance' name="distance" /><br/>
+    PRICE : <input type='number' [(ngModel)]='car.price' name="price" /><br/>
+
+
+
+    <input type='button' value='Upload Car Information' (click)='addCar();' />
+
+    </form>
+</div>

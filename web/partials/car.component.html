@@ -1,12 +1,15 @@
 <div class='carForm'>
-    <form name="carForm" #carForm="ngForm" >
-        <!--<label for="image">Upload your cars pictures</label>-->
-        <!--<input id="image" type="file" accept="image/*" [(ngModel)]="cars.image" name="image" #image="ngModel"><br/>-->
-        Brand : <input type='text' [(ngModel)]='car.make' name="make" /><br/>
-        Model : <input type='text' [(ngModel)]='car.model' name="model" /><br/>
-        Year : <input type='number' [(ngModel)]='car.year' name="year" /><br/>
-        DISTANCE : <input type='number' [(ngModel)]='car.distance' name="distance" /><br/>
-        PRICE : <input type='number' [(ngModel)]='car.price' name="price" /><br/>
+    <!--<form name="carForm" #carForm="ngForm" >-->
+        <!--&lt;!&ndash;<label for="image">Upload your cars pictures</label>&ndash;&gt;-->
+        <!--&lt;!&ndash;<input id="image" type="file" accept="image/*" [(ngModel)]="cars.image" name="image" #image="ngModel"><br/>&ndash;&gt;-->
+        <!--Brand : <input type='text' [(ngModel)]='car.make' name="make" /><br/>-->
+        <!--Model : <input type='text' [(ngModel)]='car.model' name="model" /><br/>-->
+        <!--Year : <input type='number' [(ngModel)]='car.year' name="year" /><br/>-->
+        <!--DISTANCE : <input type='number' [(ngModel)]='car.distance' name="distance" /><br/>-->
+        <!--PRICE : <input type='number' [(ngModel)]='car.price' name="price" /><br/>-->
+
+
+        <h1>HELLO WOW  ::::::::::::::{{make}}</h1>
         <input type='button' value='Upload Car Information' (click)='addCar();' />
 
     </form>
