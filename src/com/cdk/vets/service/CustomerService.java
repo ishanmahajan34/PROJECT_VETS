@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -61,5 +62,14 @@ public class CustomerService {
     @Transactional
     public void updateCustomerCar(Customer customer) {
         customerDAO.update(customer);
+    }
+
+    @Transactional
+    public int searchCustomerByEmail(String email) {
+        return customerDAO.getCustomerFromEmail(email);
+    }
+
+    public List<Car> findAllByCustomerId(String username) {
+        return customerDAO.getAllCars(username);
     }
 }

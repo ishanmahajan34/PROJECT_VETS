@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.Collection;
 
 import static java.util.stream.Collectors.toList;
@@ -57,6 +58,12 @@ public class CarDAO {
                 .collect(toList());
     }
 
+    @Transactional
+    public int updateAvailability(int id) {
+        Car car = entityManager.find(Car.class,id);
+        car.setAvailability(false);
+        return car.getCarId();
 
+    }
 }
 

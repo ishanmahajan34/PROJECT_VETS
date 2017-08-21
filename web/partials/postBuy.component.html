@@ -1,0 +1,28 @@
+<div>
+    <form>
+        <div class="col-md-1"></div>
+        <div class="col-md-10 w3-hover-shadow">
+            <div class="col-md-5">
+                <input placeholder="Name" [(ngModel)]='this.customer.name' name="name" type="text" autofocus>
+
+                <input placeholder="Username" [(ngModel)]='this.customer.email' name="email" type="text" autofocus>
+
+                <input placeholder="Phone Number" type="text" [(ngModel)]='this.customer.phoneNumber' name="phone">
+
+                <input placeholder="City" [(ngModel)]='this.customer.city' name="city" type="text" >
+
+                <input type="submit" value="REGISTER" (click)="addNewUser();" style="width: 80%">
+
+            </div>
+            <div class="col-md-5">
+                <p style="text-align: center;">IF ALREADY A USER ENTER YOUR USERNAME :</p>
+                <input type='text' placeholder="Username" [(ngModel)]='this.username' name="email"/><br/>
+                <input type="submit" value="BUY" (click)="registeredCustomerBuy();" style="width: 80%">
+                <input type="submit" value="EXCHANGE" (click)="registeredCustomerExchange();" style="width: 80%">
+            </div>
+
+            <!--<input type="submit" value="Submit" (click)="addNewUserOrRegisteredUser();" >-->
+        </div>
+        <div class="col-md-1"></div>
+    </form>
+</div>

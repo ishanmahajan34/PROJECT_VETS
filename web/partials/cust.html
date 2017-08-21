@@ -1,31 +1,86 @@
-<div class='carForm' style="border-color: #a94442;">
-    <form name="carForm" #carForm="ngForm">
-        <div *ngIf="successMessage" [ngClass]="'success'"> {{customer.name}} Added.</div>
-        <div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}}</div>
-        <h1>{{title}}</h1>
-        <div class="form-group">
-            <label for="name">NAME : </label>
-            <input type="text" class="form-control" id="name" required minlength="3" maxlength="20"
-                   [(ngModel)]="customer.name" name="name" #make="ngModel">
-            <div *ngIf="make.errors && (make.dirty || make.touched)" class="alert alert-danger">
-                <div [hidden]="!make.errors.required">
-                    Name is required!
-                </div>
-                <div [hidden]="!make.errors.minlength">
-                    Name must be at least 3 characters long.
-                </div>
-                <div [hidden]="!make.errors.maxlength">
-                    Name cannot be more than 20 characters long.
-                </div>
-            </div>
-        </div>
+<!--<div class='carForm' style="border-color: #a94442;">-->
+    <!--<form name="carForm" #carForm="ngForm">-->
+        <!--<div *ngIf="successMessage" [ngClass]="'success'"> {{customer.name}} Added.</div>-->
+        <!--<div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}}</div>-->
+        <!--<h1>{{title}}</h1>-->
+        <!--<div class="form-group">-->
+            <!--<label for="name">NAME : </label>-->
+            <!--<input type="text" class="form-control" id="name" required minlength="3" maxlength="20"-->
+                   <!--[(ngModel)]="customer.name" name="name" #make="ngModel">-->
+            <!--<div *ngIf="make.errors && (make.dirty || make.touched)" class="alert alert-danger">-->
+                <!--<div [hidden]="!make.errors.required">-->
+                    <!--Name is required!-->
+                <!--</div>-->
+                <!--<div [hidden]="!make.errors.minlength">-->
+                    <!--Name must be at least 3 characters long.-->
+                <!--</div>-->
+                <!--<div [hidden]="!make.errors.maxlength">-->
+                    <!--Name cannot be more than 20 characters long.-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
 
-        Username : <input type='text' [(ngModel)]='customer.email' name="email"/>@carexchange.com<br/>
-        Phone Number : <input type='text' [(ngModel)]='customer.phoneNumber' name="phoneNumber"/><br/>
-        City : <input type='text' [(ngModel)]='customer.city' name="city"/><br/>
+        <!--Username : <input type='text' [(ngModel)]='customer.email' name="email"/>@carexchange.com<br/>-->
+        <!--Phone Number : <input type='text' [(ngModel)]='customer.phoneNumber' name="phoneNumber"/><br/>-->
+        <!--City : <input type='text' [(ngModel)]='customer.city' name="city"/><br/>-->
 
-        <hr/>
-        <input type='button' value='Add' (click)='addCustomer();' [disabled]="!carForm.form.valid"/>
-        <input type='button' value='Add Car' (click)='addNewCarToCustomer();' />
-    </form>
-</div>
+        <!--<hr/>-->
+        <!--<input type='button' value='Add' (click)='addCustomer();' [disabled]="!carForm.form.valid"/>-->
+        <!--<input type='button' value='Add Car' (click)='addNewCarToCustomer();'/>-->
+    <!--</form>-->
+<!--</div>-->
+<!--<hr/>-->
+
+<!--<div class="container carForm" style="border-color: #a94442;">-->
+    <!--<form name="carForm" #carForm="ngForm" id="contact">-->
+        <!--<h3>Register</h3>-->
+        <!--<h4>New User should register here!!</h4>-->
+        <!--<fieldset>-->
+            <!--<input placeholder="Your name" [(ngModel)]='customer.name' name="name" type="text" tabindex="1" required autofocus>-->
+        <!--</fieldset>-->
+        <!--<fieldset>-->
+            <!--<input placeholder="Your username" [(ngModel)]='customer.email' name="email" type="text" tabindex="1" required autofocus>-->
+        <!--</fieldset>-->
+        <!--<fieldset>-->
+            <!--<input placeholder="Your Phone Number" type="tel" [(ngModel)]='customer.phoneNumber' name="phone" tabindex="3" required>-->
+        <!--</fieldset>-->
+        <!--<fieldset>-->
+            <!--<input placeholder="Your city" [(ngModel)]='customer.city' name="city" type="text" tabindex="4" required>-->
+        <!--</fieldset>-->
+        <!--<fieldset>-->
+            <!--<input type ="button" id="contact-submit" data-submit="...Sending" (click)="addCustomer();">Register user</input>-->
+        <!--</fieldset>-->
+
+        <!--<hr/>-->
+
+        <!--<hr/>-->
+        <!--<input type='button' value='Add' (click)='addCustomer();' [disabled]="!carForm.form.valid"/>-->
+        <!--<input type='button' value='Add Car' (click)='addNewCarToCustomer();'/>-->
+
+
+    <!--</form>-->
+<!--</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1>HEKKKKWJSH</h1>
+
+
+
+
+
+

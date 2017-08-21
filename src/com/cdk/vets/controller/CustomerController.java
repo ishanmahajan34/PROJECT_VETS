@@ -26,6 +26,13 @@ public class CustomerController {
         return String.valueOf(customer.getCustomerId());
     }
 
+    @RequestMapping(value = "/newCustomer", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE, method = RequestMethod.POST)
+    public int newCustomer(@RequestBody Customer customer) {
+        int id = customerService.add(customer);
+//        return "Customer with " + customer.getCustomerId()+ " added successfully!!!";
+        return id;
+    }
+
     @RequestMapping(value = "/removeCustomer/{id}", produces = MediaType.TEXT_PLAIN_VALUE, method = RequestMethod.DELETE)
     public void removeCustomer(@PathVariable Integer id) {
         customerService.remove(id);
@@ -43,8 +50,6 @@ public class CustomerController {
 
     @RequestMapping(value = "/addCarByEmail/{email}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
     public void readCusomersByUsername(@PathVariable String email, @RequestBody Car car) {
-
-//        if(email.contains('@'))
 
         System.out.println("-----------------------------------------------------------");
         Customer customer =  customerService.login(email);
@@ -89,12 +94,21 @@ public class CustomerController {
 //        return customerService.readAll();
 //    }
 
+    @RequestMapping(value = "/findAllCarOfBuyer/{username}", produces = MediaType.APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
+    public Collection<Car> findAllCars(@PathVariable String username){
+        return customerService.findAllByCustomerId(username);
+    }
 
-    //
+
     @RequestMapping(value = "/customer/{id}", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
     public Customer readCusomerById(@PathVariable Integer id) {
         return customerService.searchById(id);
     }
 
+
+    @RequestMapping(value = "/getCustomerIdByEmail/{email}", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
+    public int readCusomerById(@PathVariable String email) {
+        return customerService.searchCustomerByEmail(email);
+    }
 
 }

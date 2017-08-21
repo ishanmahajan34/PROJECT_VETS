@@ -15,13 +15,16 @@ import {CricketComponent} from "./cricket.component";
 import {SelectedCarComponent} from "./viewcardetails.component";
 import {SellCarComponent} from "./sell.component";
 import {ReturningCustomerComponent} from "./oldcustomer.component";
+import {PostBuyComponent} from "./postbuy.component";
+import {FinalComponent} from "./final.component";
+import {ExchangeComponent} from "./exchange.component";
 // import {AddCustomerCarComponent} from "./addcustomercar.component";
 
 
 
 @NgModule({
     imports:[BrowserModule,FormsModule,HttpModule,configuredRoutes],
-	declarations:[RegisterCustomerComponent,ReturningCustomerComponent,SellCarComponent,CricketComponent,SelectedCarComponent,CarComponent,AppComponent,HomeComponent,CarSearchComponent],
+	declarations:[RegisterCustomerComponent,ExchangeComponent,FinalComponent,PostBuyComponent,ReturningCustomerComponent,SellCarComponent,CricketComponent,SelectedCarComponent,CarComponent,AppComponent,HomeComponent,CarSearchComponent],
     bootstrap:[AppComponent]
 })
 export class AppModule{

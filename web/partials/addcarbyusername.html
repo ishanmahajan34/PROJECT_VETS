@@ -1,26 +1,47 @@
-<div class='carForm' style="border-color: #a94442;">
+<script>
+    function previewFile(){
+        var preview = document.querySelector('img'); //selects the query named img
+        var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+        var reader  = new FileReader();
+
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file); //reads the data as a URL
+        } else {
+            preview.src = "";
+        }
+    }
+
+    previewFile();  //calls the function named previewFile()
+</script>
+<div class='carForm'>
     <form name="carForm" #carForm="ngForm">
+        <div class="col-md-1"></div>
+        <div class="w3-third">
 
+            <img src={{this.imgPath}} height="300" alt="Image preview...">
 
+            <hr>
+            <input class="w3-black" type="file" (change)="fileEvent($event)" />
+        </div>
+        <div class="w3-rest w3-hover-shadow">
 
+                <input type='text' [(ngModel)]="car.make" name="make" placeholder="Car Make" autofocus/>
+                <input type='text' [(ngModel)]="car.model" name="model" placeholder="Car Model" autofocus/>
+                <input type='text' [(ngModel)]="car.year" name="year" placeholder="Car Buying Year" autofocus/>
+                <input type='text' [(ngModel)]="car.distance" name="distance" placeholder="Appoximate Distance Travelled in Car" autofocus/>
+                <input type='text' [(ngModel)]="car.price" name="price" placeholder="Car Selling Price" autofocus/>
 
+            <input type='button' value='Add Car' (click)='addCarForCustomer();' />
 
-        <hr/>
-
-        Brand : <input type='text' [(ngModel)]="car.make" name="make"/><br/>
-        Model : <input type='text' [(ngModel)]="car.model" name="model"/><br/>
-        Year : <input type='number' [(ngModel)]="car.year" name="year"/><br/>
-        DISTANCE : <input type='number' [(ngModel)]="car.distance" name="distance"/><br/>
-        PRICE : <input type='number' [(ngModel)]="car.price" name="price"/><br/>
-
-
-        <!--<input type='button' value='Upload Car Information' (click)='addCar();'/>-->
-
-
-        <input type='button' value='Add Car' (click)='addCarForCustomer();' />
+        </div>
     </form>
 
-    <!--<h1>Click here!</h1>-->
-
-    <!--<input type="button" value="ADD CAR" (click)="addCarFromCustomer();" />-->
 </div>
+<div *ngIf="this.successMessage">
+    <p >Car added successfully!!!</p>
+</div>
+

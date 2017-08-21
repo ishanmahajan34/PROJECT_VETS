@@ -1,18 +1,27 @@
 <div>
 
-    <!--<td>{{cars.model}}</td>-->
-    <!--<td>{{cars.year}}</td>-->
-    <!--<td>{{cars.distance}}</td>-->
-    <!--<td>{{cars.price}}</td>-->
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <img src={{this.carImage}} style="width: 70%; height: 70%">
+    </div>
+    <div class="col-md-2"></div>
+</div>
 
-    <h1>HELLO WORLD!</h1>
-    <h1>{{make}}</h1>
-    <h1>{{model}}</h1>
-    <h1>{{year}}</h1>
-    <h1>{{distance}}</h1>
-    <h1>{{year}}</h1>
-    <h1>{{price}}</h1>
-    <input type="button" (click)="buy();" value="BUY"><br>
-    <input type="button" (click)="exchange();" value="EXCHANGE"><br>
+<div>
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+        <h1>CAR : {{this.make}} {{this.model}}</h1>
+        <h1>CAR AGE : {{this.distance}} kms</h1>
+        <h1>CAR AGE : {{this.age}} years</h1>
+        <h1>CAR PRICE : Rs. {{this.price}} </h1>
+    </div>
+    <div class="col-md-5">
+        <input type="button" (click)="buy();" value="BUY">
+    </div>
+    <div class="col-md-2"></div>
 
 </div>
+
+
+<!--<input type="button" (click)="exchange();" value="EXCHANGE"><br>-->
+

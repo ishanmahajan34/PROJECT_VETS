@@ -48,11 +48,15 @@ public class CustomerDAO {
         entityManager.merge(customer);
     }
 
+    public int getCustomerFromEmail(String email) {
+        Customer cust = (Customer)entityManager.createQuery("FROM Customer c where c.email ='" + email + "'").getSingleResult();
+        return cust.getCustomerId();
+    }
 
-//    public List<Customer> selectAll(){
-//        return entityManager.createQuery("from Customer").getResultList();
-//
-//    }
+    public List<Car> getAllCars(String username) {
+        Customer cust = (Customer)entityManager.createQuery("FROM Customer c where c.email ='" + username + "'").getSingleResult();
+        return cust.getCarSet();
+    }
 
 
 //    public void delete(String username) {

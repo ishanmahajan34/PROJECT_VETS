@@ -9,7 +9,8 @@ import {Car} from "./car";
 
 @Component({
     selector: 'register',
-    templateUrl: '../partials/cust.html'
+    templateUrl: '../partials/cust.html',
+    styleUrls:['../css/registercustomer.styles.css','../css/bootstrap.min.css'],
 
 })
 export class RegisterCustomerComponent {

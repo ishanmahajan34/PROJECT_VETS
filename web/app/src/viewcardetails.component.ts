@@ -20,6 +20,8 @@ export class SelectedCarComponent implements OnInit {
     year:number;
     distance:number;
     price:number;
+    carImage:string;
+    age:number;
 
 
     constructor(private http: Http, private router: Router, private activatedRoute: ActivatedRoute) {
@@ -36,9 +38,10 @@ export class SelectedCarComponent implements OnInit {
 
 
     ngOnInit() {
+
+
         var searchURL = "/rest/findCar/" + this.testCarID;
         var requestHeaders = new Headers({'Accept': 'application/json'});
-        console.log("HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
         var options = new RequestOptions({headers: requestHeaders});
         this.http.get(searchURL, options).subscribe(res => {
             this.carNew = res.json();
@@ -48,7 +51,9 @@ export class SelectedCarComponent implements OnInit {
             this.make = this.carNew.make;
             this.distance = this.carNew.distance;
             this.year = this.carNew.year;
+            this.age = (new Date()).getFullYear(); - this.year;
             this.price = this.carNew.price;
+            this.carImage = this.carNew.image;
         });
 
     }
@@ -58,8 +63,9 @@ export class SelectedCarComponent implements OnInit {
 
         var requestHeaders = new Headers({'Accept': 'application/json'});
         var options = new RequestOptions({headers: requestHeaders});
-
-        // this.http.get(searchURL, options).subscribe(res => this.cars = res.json());
+        var searchURL = "/postBuying/" + this.testCarID;
+        console.log("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+        this.router.navigate([searchURL]);
     }
 
     exchange() {

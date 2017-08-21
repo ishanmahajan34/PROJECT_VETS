@@ -2,21 +2,12 @@ import {Component} from "@angular/core";
 
 @Component({
 	selector:'myApp',
-    template:`<div>
-        <h1>{{title}}</h1>
-        <a routerLink="sellCar">SELL YOUR CAR</a>
-		<a routerLink="add">Add Car</a>
-        <a routerLink="carlist">Find Cars</a>
-        <a routerLink="cricket">Cricket Page</a>
-        <a routerLink="viewSelectedCar">DISPLAY CAR!!</a>
-		<br/>
-		<!--<a routerLink="addcarforcustomer">add customer car</a>-->
-		<br />
-       	<router-outlet></router-outlet>      
-    </div>`
+    templateUrl: '../partials/header.component.html',
+    styleUrls:['../css/w3.css','../css/header.styles.css','../css/bootstrap.min.css','../css/oswald.css','../css/global.css'],
+
 })
 export class AppComponent{
 
-	title:string ="CAR EXCHANGE PORTAL";
+	title:string ="CARX";
 
 }

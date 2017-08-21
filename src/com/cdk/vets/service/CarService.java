@@ -32,9 +32,9 @@ public class CarService {
         return carDAO.getCars(field, fieldValue);
     }
 
-    public Collection<Car> readCarsLessThanMaxPrice(String field, String fieldValue) {
-        return carDAO.getCarsLessThanMaxPrice(field, fieldValue);
-    }
+//    public Collection<Car> readCarsLessThanMaxPrice(String field, String fieldValue) {
+//        return carDAO.getCarsLessThanMaxPrice(field, fieldValue);
+//    }
 
     public List<String> displayCarMake() {
         return carDAO.getMakes();
@@ -86,4 +86,11 @@ public class CarService {
                 .findFirst()
                 .get();
     }
+
+    @Transactional
+    public int update(int id) {
+        return carDAO.updateAvailability(id);
+    }
+
+
 }

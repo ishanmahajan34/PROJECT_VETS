@@ -1,0 +1,101 @@
+<div>
+    <div class="col-md-1"></div>
+    <div class="col-md-11">
+        <div class="w3-half w3-hover-shadow" style="font-family:'Oswald';">
+            <form name="customerForm" #customerForm="ngForm">
+                <p style="text-align: center;">NEW USERS SHOULD REGISTER HERE :</p>
+                <div class="form-group">
+                    <input placeholder="Name" [(ngModel)]='customer.name' name="name" type="text" #make="ngModel"
+                           required minlength="3" maxlength="30" autofocus>
+                    <div *ngIf="make.errors &&(make.dirty || make.touched)" class="alert alert-danger">
+                        <div [hidden]="!make.errors.required">
+                            Name is required!
+                        </div>
+                        <div [hidden]="!make.errors.minlength">
+                            Name must be at least 3 characters long.
+                        </div>
+                        <div [hidden]="!make.errors.maxlength">
+                            Name cannot be more than 30 characters long.
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input placeholder="Username" [(ngModel)]='customer.email' name="email" type="text" #make="ngModel"
+                           required minlength="3" maxlength="30" autofocus>
+                    <div *ngIf="make.errors &&(make.dirty || make.touched)" class="alert alert-danger">
+                        <div [hidden]="!make.errors.required">
+                            Username is required!
+                        </div>
+                        <div [hidden]="!make.errors.minlength">
+                            Username must be at least 3 characters long.
+                        </div>
+                        <div [hidden]="!make.errors.maxlength">
+                            Username cannot be more than 30 characters long.
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <input placeholder="Phone Number" [(ngModel)]='customer.phoneNumber' name="phoneNumber" type="text"
+                           #make="ngModel"
+                           required minlength="3" maxlength="10" autofocus>
+                    <div *ngIf="make.errors &&(make.dirty || make.touched)" class="alert alert-danger">
+                        <div [hidden]="!make.errors.required">
+                            Phone Number is required!
+                        </div>
+                        <div [hidden]="!make.errors.maxlength">
+                            Phone Number cannot be more than 10 characters long.
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input placeholder="City" [(ngModel)]='customer.city' name="city" type="text" #make="ngModel"
+                           required minlength="2" maxlength="20" autofocus>
+                    <div *ngIf="make.errors &&(make.dirty || make.touched)" class="alert alert-danger">
+                        <div [hidden]="!make.errors.required">
+                            City is required!
+                        </div>
+                        <div [hidden]="!make.errors.maxlength">
+                            City cannot be more than 20 characters long.
+                        </div>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="w3-rest w3-hover-shadow" style="font-family:'Oswald';">
+            <form name="usernameForm" #usernameForm="ngForm">
+                <p style="text-align: center;">IF ALREADY A USER ENTER YOUR USERNAME :</p>
+                <div class="form-group">
+                    <input type='text' placeholder="Username" [(ngModel)]='username' name="email" #make="ngModel"
+                           required minlength="3" maxlength="30" autofocus>
+                    <div *ngIf="make.errors &&(make.dirty || make.touched)" class="alert alert-danger">
+                        <div [hidden]="!make.errors.required">
+                            Username is required!
+                        </div>
+                        <div [hidden]="!make.errors.minlength">
+                            Username must be at least 3 characters long.
+                        </div>
+                        <div [hidden]="!make.errors.maxlength">
+                            Username cannot be more than 30 characters long.
+                        </div>
+
+                    </div>
+                </div>
+                <br/>
+            </form>
+        </div>
+        <br><br><br><br><br>
+        <input class="w3-black w3-bar" type="submit" value="ADD CAR" (click)="addNewCar();"
+               style="font-family:'Oswald';" [disabled]="!customerForm.form.valid && !usernameForm.form.valid">
+    </div>
+</div>
+
+
+

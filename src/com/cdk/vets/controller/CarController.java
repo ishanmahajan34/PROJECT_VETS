@@ -109,4 +109,11 @@ public class CarController {
     }
 
 
+
+    @RequestMapping(value = "/updateAvailability/{id}", produces = MediaType.APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
+    public String updateCarAvailibity(@PathVariable int id){
+
+        int value = carService.update(id);
+        return "Car with carId '"+value+" ' updated successfully!";
+    }
 }

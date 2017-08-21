@@ -8,8 +8,8 @@ import {SelectedCar} from "./selectedcar";
 
 @Component({
     selector: 'carlist',
-    templateUrl: '../partials/search.html',
-    //styleUrls:['../css/carsearch.component.styles.css'],
+    templateUrl: '../partials/searchCars.html',
+    styleUrls:['../css/w3.css','../css/searchcar.styles.css','../css/bootstrap.min.css','../css/oswald.css'],
 })
 
 
@@ -26,12 +26,14 @@ export class CarSearchComponent implements OnInit {
     model: string[];
     fCAR: SelectedCar;
     tempID: string = "";
+    buttonView : boolean;
 
     constructor(private http: Http, private router: Router, private activatedRouter: ActivatedRoute) {
     }
 
 
     ngOnInit() {
+        this.buttonView = false;
     }
 
 
@@ -64,15 +66,11 @@ export class CarSearchComponent implements OnInit {
 
         this.http.get(carURL, options).subscribe(res => {
             this.tempID = res.json().toString();
-            // console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
-            // console.log(res.json());
-            // console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
-            // console.log(this.tempID);
-            // console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
         });
 
-        // console.log(this.tempID + " -----------" + res.json());
-        // console.log(this.tempID);
+        this.buttonView = true;
+
+
 
 
     }
