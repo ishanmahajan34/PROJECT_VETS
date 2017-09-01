@@ -6,9 +6,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
     selector: 'viewSelectedCar',
-    templateUrl: '../partials/viewCar.html',
-    // template : '<h1>{{model}}</h1>'
-    //styleUrls:['../css/carsearch.component.styles.css'],
+    templateUrl: '../partials/viewDetailedCar.html',
+    styleUrls:['../css/w3.css','../css/searchcar.styles.css','../css/bootstrap.min.css','../css/oswald.css'],
 })
 export class SelectedCarComponent implements OnInit {
 
@@ -51,7 +50,7 @@ export class SelectedCarComponent implements OnInit {
             this.make = this.carNew.make;
             this.distance = this.carNew.distance;
             this.year = this.carNew.year;
-            this.age = (new Date()).getFullYear(); - this.year;
+            this.age = (new Date()).getFullYear() - this.year;
             this.price = this.carNew.price;
             this.carImage = this.carNew.image;
         });

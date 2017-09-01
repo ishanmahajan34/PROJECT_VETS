@@ -32,17 +32,17 @@
 
                 <input type='text' [(ngModel)]="car.make" name="make" placeholder="Car Make" autofocus/>
                 <input type='text' [(ngModel)]="car.model" name="model" placeholder="Car Model" autofocus/>
-                <input type='text' [(ngModel)]="car.year" name="year" placeholder="Car Buying Year" autofocus/><br>
-                <input type='text' [(ngModel)]="car.distance" name="distance"
-                       placeholder="Appoximate Distance Travelled in Car" autofocus/><br>
+                <input type='text' [(ngModel)]="car.year" name="year" placeholder="Car Buying Year" autofocus/>
+                <input type='text' [(ngModel)]="car.distance" name="distance" placeholder="Appoximate Distance Travelled in Car" autofocus/>
                 <input type='text' [(ngModel)]="car.price" name="price" placeholder="Car Selling Price" autofocus/>
-                <br>
-                <input class="w3-black" type='button' value='Add Car' (click)='addCarForCustomer();'/>
+
+                <input class="w3-black w3-bar" type='button' value='Add Car' (click)='addCarForCustomer();'/>
             </div>
         </div>
     </form>
 
 </div>
+<br>
 <div *ngIf="this.successMessage">
     <h2 style="font-family: Oswald">{{car.make}} {{car.model}} added successfully!!!</h2>
 </div>

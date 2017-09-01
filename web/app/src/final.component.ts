@@ -9,7 +9,8 @@ import {Car} from "./car";
 
 @Component({
     selector: 'final',
-    templateUrl: '../partials/final.html'
+    templateUrl: '../partials/finalNew.html',
+    styleUrls: ['../css/registercustomer.styles.css', '../css/sell.styles.css', '../css/bootstrap.min.css', '../css/font-awesome.min.css', '../css/w3.css', '../css/font.css','../css/oswald.css'],
 
 })
 export class FinalComponent implements OnInit {

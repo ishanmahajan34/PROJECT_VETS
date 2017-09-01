@@ -10,8 +10,8 @@ import {Transaction} from "./transaction";
 
 @Component({
     selector: 'postBuying',
-    templateUrl: '../partials/postBuy.component.html',
-    styleUrls: ['../css/registercustomer.styles.css', '../css/sell.styles.css', '../css/bootstrap.min.css', '../css/font-awesome.min.css', '../css/w3.css', '../css/font.css'],
+    templateUrl: '../partials/postBuying.html',
+    styleUrls: ['../css/registercustomer.styles.css', '../css/sell.styles.css', '../css/bootstrap.min.css', '../css/font-awesome.min.css', '../css/w3.css', '../css/font.css','../css/oswald.css'],
 
 })
 export class PostBuyComponent implements OnInit {
